@@ -1,30 +1,40 @@
-package main
+package main_test
 
-import "testing"
+import (
+	. "github.com/onsi/ginkgo/v2"
+	. "github.com/onsi/gomega"
 
-func TestMultiplication(t *testing.T) {
-	var result = Multiplication(5, 5)
-	var expected int = 25
+    "unit-test"
+)
 
-	if result != expected {
-		t.Errorf("Expected %d, but got %d", expected, result)
-	}
-}
+var _ = Describe("Core", func() {
+	Describe("Test Multiplication", func() {
+		It("Should Return Correct Number", func() {
+			// pengujian menggunakan 'Expect' dari Gomega
+			var result = main.Multiplication(5, 5)
+			var expected int = 25
 
-func TestDivision(t *testing.T) {
-	var result = Division(100, 5)
-	var expected int = 20
+			Expect(result).To(Equal(expected))
+		})
+	})
 
-	if result != expected {
-		t.Errorf("Expected %d, but got %d", expected, result)
-	}
-}
+	Describe("Test Division", func() {
+		It("Should Return Correct Number", func() {
+			// pengujian menggunakan 'Expect' dari Gomega
+			var result = main.Division(100, 5)
+			var expected int = 20
 
-func TestModulus(t *testing.T) {
-	var result = Modulus(10, 3)
-	var expected int = 1
+			Expect(result).To(Equal(expected))
+		})
+	})
 
-	if result != expected {
-		t.Errorf("Expected %d, but got %d", expected, result)
-	}
-}
+	Describe("Test Modulus", func() {
+		It("Should Return Correct Number", func() {
+			// pengujian menggunakan 'Expect' dari Gomega
+			var result = main.Modulus(10, 3)
+			var expected int = 1
+
+			Expect(result).To(Equal(expected))
+		})
+	})
+})
